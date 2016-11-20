@@ -67,14 +67,34 @@ class HNSaver {
     }
 
     manipulateSite() {
-    	$(this.TITLE_SELECTOR).each((i, item) => {
-    		let el = $(item)
-        	let title = el.text()
-        	this.markStory(el, title)
-    	})
+        this.addMetaDataToSite()
+        this.markStoriesOnSite()
     }
 
-    markStory(el, title) {
+    addMetaDataToSite() {
+      let keys = Object.keys(this.stories)
+      let total = keys.length
+
+      let read = keys.reduce((count, title) => {
+        if (this.stories[title]) {
+          return count + 1
+        } else {
+          return count
+        }
+      }, 0)
+
+      $(".pagetop").eq(0).append(`| Saw ${total}, read ${read}`)
+    }
+
+    markStoriesOnSite() {
+      $(this.TITLE_SELECTOR).each((i, item) => {
+    	  let el = $(item)
+          let title = el.text()
+          this.markSingleStory(el, title)
+      })
+    }
+
+    markSingleStory(el, title) {
     	if (title in this.stories) {
 			let clicked = this.stories[title]
 

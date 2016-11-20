@@ -95,15 +95,15 @@ class HNSaver {
 
   markSingleStory(el, title) {
     if (title in this.stories) {
-		let clicked = this.stories[title]
+      let clicked = this.stories[title]
 
-		el.css({ color: "grey" })
+      el.css({ color: "grey" })
 
-		if (clicked) {
-			el.parent().append(" ★")
-		} else {
-			el.parent().append(" ✓")
-		}
+      if (clicked) {
+        el.parent().append(" ★")
+      } else {
+        el.parent().append(" ✓")
+      }
     }
   }
 }

@@ -19,3 +19,8 @@ The script was written in ES6 and requires jQuery. You have to install some scri
 - The star means I clicked on the story
 - The check means I saw the story before
 - Stories that I've never seen before won't be greyed out
+
+## What it doesn't do
+
+- Upvoting and commenting isn't logged
+- Only the titles of stories are logged, URLs or submitters aren't
